@@ -1,52 +1,59 @@
-var gulp        = require('gulp'),
-    sass        = require('gulp-sass'),
-    rename      = require('gulp-rename'),
-    cssmin      = require('gulp-minify-css'),
-    concat      = require('gulp-concat'),
-    uglify      = require('gulp-uglify'),
-    jshint      = require('gulp-jshint'),
-    scsslint    = require('gulp-sass-lint'),
-    cache       = require('gulp-cached'),
-    prefix      = require('gulp-autoprefixer'),
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    rename = require('gulp-rename'),
+    cssmin = require('gulp-minify-css'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    jshint = require('gulp-jshint'),
+    scsslint = require('gulp-sass-lint'),
+    cache = require('gulp-cached'),
+    prefix = require('gulp-autoprefixer'),
     browserSync = require('browser-sync'),
-    reload      = browserSync.reload,
-    minifyHTML  = require('gulp-minify-html'),
-    size        = require('gulp-size'),
-    imagemin    = require('gulp-imagemin'),
-    pngquant    = require('imagemin-pngquant'),
-    plumber     = require('gulp-plumber'),
-    deploy      = require('gulp-gh-pages'),
-    notify      = require('gulp-notify');
+    reload = browserSync.reload,
+    minifyHTML = require('gulp-minify-html'),
+    size = require('gulp-size'),
+    imagemin = require('gulp-imagemin'),
+    pngquant = require('imagemin-pngquant'),
+    plumber = require('gulp-plumber'),
+    deploy = require('gulp-gh-pages'),
+    notify = require('gulp-notify'),
+    wait = require('gulp-wait');
+//normalize   = require('node-normalize-scss');
+//animate     = require('animate-sass');
 
 
-gulp.task('scss', function() {
-    var onError = function(err) {
-      notify.onError({
-          title:    "Gulp",
-          subtitle: "Failure!",
-          message:  "Error: <%= error.message %>",
-          sound:    "Beep"
-      })(err);
-      this.emit('end');
-  };
+gulp.task('scss', function () {
+    var onError = function (err) {
+        notify.onError({
+            title: "Gulp",
+            subtitle: "Failure!",
+            message: "Error: <%= error.message %>",
+            sound: "Beep"
+        })(err);
+        this.emit('end');
+    };
 
-  return gulp.src('scss/main.scss')
-    .pipe(plumber({errorHandler: onError}))
-    .pipe(sass({
-        includePaths: require('node-normalize-scss').includePaths
-    }))
-    .pipe(size({ gzip: true, showFiles: true }))
-    .pipe(prefix())
-    .pipe(rename('main.css'))
-    .pipe(gulp.dest('dist/css'))
-    .pipe(reload({stream:true}))
-    .pipe(cssmin())
-    .pipe(size({ gzip: true, showFiles: true }))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('dist/css'))
+    return gulp.src('scss/main.scss')
+        .pipe(wait(500))
+        .pipe(plumber({errorHandler: onError}))
+        .pipe(sass({
+            //includePaths: [].concat(normalize, animate)
+            //includePaths: ['node-normalize-scss', 'animate-sass']
+            //includePaths: ('node-normalize-scss').includePaths
+            includePaths: ['node_modules/animate-sass', 'node_modules/node-normalize-scss']
+        }))
+        .pipe(size({gzip: true, showFiles: true}))
+        .pipe(prefix())
+        .pipe(rename('main.css'))
+        .pipe(gulp.dest('dist/css'))
+        .pipe(reload({stream: true}))
+        .pipe(cssmin())
+        .pipe(size({gzip: true, showFiles: true}))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('dist/css'))
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
     browserSync({
         server: {
             baseDir: "dist/"
@@ -59,44 +66,44 @@ gulp.task('deploy', function () {
         .pipe(deploy());
 });
 
-gulp.task('js', function() {
-  gulp.src('js/*.js')
-    .pipe(uglify())
-    .pipe(size({ gzip: true, showFiles: true }))
-    .pipe(concat('j.js'))
-    .pipe(gulp.dest('dist/js'))
-    .pipe(reload({stream:true}));
+gulp.task('js', function () {
+    gulp.src('js/*.js')
+        .pipe(uglify())
+        .pipe(size({gzip: true, showFiles: true}))
+        .pipe(concat('j.js'))
+        .pipe(gulp.dest('dist/js'))
+        .pipe(reload({stream: true}));
 });
 
-gulp.task('scss-lint', function() {
-  gulp.src('scss/**/*.scss')
-    .pipe(cache('scsslint'))
-    .pipe(scsslint());
+gulp.task('scss-lint', function () {
+    gulp.src('scss/**/*.scss')
+        .pipe(cache('scsslint'))
+        .pipe(scsslint());
 });
 
-gulp.task('minify-html', function() {
+gulp.task('minify-html', function () {
     var opts = {
-      comments:true,
-      spare:true
+        comments: true,
+        spare: true
     };
 
-  gulp.src('./*.html')
-    .pipe(minifyHTML(opts))
-    .pipe(gulp.dest('dist/'))
-    .pipe(reload({stream:true}));
+    gulp.src('./*.html')
+        .pipe(minifyHTML(opts))
+        .pipe(gulp.dest('dist/'))
+        .pipe(reload({stream: true}));
 });
 
-gulp.task('jshint', function() {
-  gulp.src('js/*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+gulp.task('jshint', function () {
+    gulp.src('js/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
 });
 
-gulp.task('watch', function() {
-  gulp.watch('scss/**/*.scss', ['scss']);
-  gulp.watch('js/*.js', ['jshint', 'js']);
-  gulp.watch('./*.html', ['minify-html']);
-  gulp.watch('img/*', ['imgmin']);
+gulp.task('watch', function () {
+    gulp.watch('scss/**/*.scss', ['scss']);
+    gulp.watch('js/*.js', ['jshint', 'js']);
+    gulp.watch('./*.html', ['minify-html']);
+    gulp.watch('img/*', ['imgmin']);
 });
 
 gulp.task('imgmin', function () {

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
+    "animate-sass": "^0.8.2",
     "browser-sync": "^2.11.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^4.1.0",
@@ -20,6 +21,7 @@
     "gulp-sass-lint": "^1.1.1",
     "gulp-size": "^3.0.0",
     "gulp-uglify": "^3.0.0",
+    "gulp-wait": "0.0.2",
     "imagemin-pngquant": "^5.0.1",
     "jshint": "^2.9.1",
     "node-normalize-scss": "^3.0.0"

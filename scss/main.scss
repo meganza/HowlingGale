@@ -1,2 +1,7 @@
 @import 'base/base';
-@import "normalize";
+@import 'animate';
+@import 'normalize';
+
+body {
+  display: grid;
+}

@@ -32,7 +32,9 @@ gulp.task('scss', function() {
 
   return gulp.src('scss/main.scss')
     .pipe(plumber({errorHandler: onError}))
-    .pipe(sass())
+    .pipe(sass({
+        includePaths: require('node-normalize-scss').includePaths
+    }))
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(prefix())
     .pipe(rename('main.css'))

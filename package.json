@@ -21,6 +21,7 @@
     "gulp-size": "^3.0.0",
     "gulp-uglify": "^3.0.0",
     "imagemin-pngquant": "^5.0.1",
-    "jshint": "^2.9.1"
+    "jshint": "^2.9.1",
+    "node-normalize-scss": "^3.0.0"
   }
 }

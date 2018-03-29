@@ -1,7 +1,7 @@
 @import 'base/base';
 @import 'normalize';
 @import 'animate';
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 nav {
   background: #000;
@@ -19,8 +19,22 @@ nav > .right {
   order: 2;
 }
 
+p, a {
+  font-size: 1.5em;
+  line-height: 2em;
+  letter-spacing: .05em;
+}
+
+h1 { font-size: 4em; }
+h2 { font-size: 3em; }
+h3 { font-size: 2.5em; }
+h4 { font-size: 2.25em; }
+h5 { font-size: 2em; }
+h6 { font-size: 1.75em; }
+
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
   color: white;
   background: black;
   display: grid;
@@ -53,7 +67,7 @@ img { max-width: 100%; }
 }
 
 .content > .content-row {
-  margin: 0 15% 0 15%;
+  margin: 5% 15% 5% 15%;
 }
 
 @media (max-width: 650px) {
@@ -64,10 +78,10 @@ img { max-width: 100%; }
   .header > div.left, .header > div.right { width: 100%; }
 
   .content > .content-row {
-    margin: 0 5% 0 5%;
+    margin: 2% 5% 2% 5%;
   }
 }
 
 .footer {
-  background: #323232;
+  background: #444;
 }

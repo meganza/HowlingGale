@@ -42,7 +42,7 @@ body {
   grid-template-rows: 45px repeat(3, auto);
 }
 
-.header, .triad-box {
+.header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -70,12 +70,23 @@ img { max-width: 100%; }
   margin: 5% 15% 5% 15%;
 }
 
+.triad-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  //justify-content: space-between;
+}
+
 .box {
-  flex-grow: 1;
+  flex: 1;
+  //width: 32%;
   height: 200px;
+  padding: 10px;
 }
 
 .box > img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 

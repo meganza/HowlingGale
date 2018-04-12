@@ -70,7 +70,7 @@ gulp.task('js', function () {
     gulp.src('js/*.js')
         .pipe(uglify())
         .pipe(size({gzip: true, showFiles: true}))
-        .pipe(concat('j.js'))
+        .pipe(concat('main.js'))
         .pipe(gulp.dest('dist/js'))
         .pipe(reload({stream: true}));
 });

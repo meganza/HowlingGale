@@ -44,7 +44,7 @@ a {
   color: #6A6A6A;
 }
 
-h1 { font-size: 4em; color: #ccc; }
+h1 { font-size: 4em; color: #eee; }
 h2 { font-size: 2em; color: $darkTextColor; padding: 0; margin: 0; } // TO FIX: normalize isnt overriding User Agent Stylesheet -_-
 h3 { font-size: 1.5em; color: $darkTextColor; padding: 0; margin: 0;}
 h4 { font-size: 1.4em; color: $darkTextColor; padding: 0; margin: 0; }
@@ -63,28 +63,41 @@ body {
 
 .header {
   color: #ccc;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  display: flex;
-  flex-direction: row;
+  position: relative;
   align-items: center;
-  background: #232323; /* Old browsers */
-  background: -moz-linear-gradient(top, #232323 0%, #7c7c7c 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #232323 0%,#7c7c7c 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #232323 0%,#7c7c7c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232323', endColorstr='#7c7c7c',GradientType=0 ); /* IE6-9 */
+  background: #232323;
 }
 
-.header > div.right {
-  flex-grow: 1;
-  margin-left: 70px;
-  margin-right: 50px;
+#headerVideo {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  opacity: 0.25;
 }
 
-.header > div.left {
-  flex-flow: 1;
-  width: 70%;
+.overlay {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+
+  top: 50%;
+  transform: translateY(-50%);
 }
+
+//.header > div.right {
+//  flex-grow: 1;
+//  margin-left: 70px;
+//  margin-right: 50px;
+//}
+//
+//.header > div.left {
+//  flex-flow: 1;
+//  width: 70%;
+//}
 
 img { max-width: 100%; }
 

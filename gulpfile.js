@@ -103,7 +103,13 @@ gulp.task('watch', function () {
     gulp.watch('scss/**/*.scss', ['scss']);
     gulp.watch('js/*.js', ['jshint', 'js']);
     gulp.watch('./*.html', ['minify-html']);
+    gulp.watch('vid/*', ['videos']);
     gulp.watch('img/*', ['imgmin']);
+});
+
+gulp.task('videos', function () {
+    return gulp.src('vid/*')
+        .pipe(gulp.dest('dist/vid'));
 });
 
 gulp.task('imgmin', function () {
@@ -116,4 +122,4 @@ gulp.task('imgmin', function () {
         .pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('default', ['browser-sync', 'js', 'imgmin', 'minify-html', 'scss', 'watch']);
+gulp.task('default', ['browser-sync', 'js', 'videos', 'imgmin', 'minify-html', 'scss', 'watch']);

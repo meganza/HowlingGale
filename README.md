@@ -13,3 +13,4 @@ To do:
 - contact us
 - decorative hover effects on nav
 - responsive nav
+- NOT WORKING PROPERLY ON MOBILE???

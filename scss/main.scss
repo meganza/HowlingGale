@@ -7,6 +7,8 @@
 $navLinkColor: #ccc;
 $darkTextColor: #6A6A6A;
 
+img { max-width: 100%; }
+
 nav {
   background: #232323;
   display: flex;
@@ -16,11 +18,18 @@ nav {
 
 nav > .left a {
   color: $navLinkColor;
+  margin-left: 15px;
 }
 
 nav > .right > a {
   color: $navLinkColor;
   padding: 15px;
+}
+
+nav img {
+  float: left;
+  height: 20px;
+  border-radius: 50%;
 }
 
 .left {
@@ -42,6 +51,10 @@ a {
   @extend p;
   text-decoration: none;
   color: #6A6A6A;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 h1 { font-size: 4em; color: #eee; }
@@ -87,8 +100,6 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
-
-img { max-width: 100%; }
 
 .content {
   display: flex;
@@ -204,9 +215,6 @@ hr  {
     flex-direction: column;
     justify-items: left;
   }
-  .header > div.left, .header > div.right { width: 100%; }
-
-  .header > div.right { padding-left: 10px; }
 
   .contact > .left { min-width: 100%;}
 
@@ -288,7 +296,7 @@ hr  {
 }
 
 .quote {
-  margin: 40px 0px;
+  margin: 40px 10px;
 }
 
 .footer {

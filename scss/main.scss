@@ -2,7 +2,7 @@
 @import 'normalize';
 @import 'animate';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css');
 
 $navLinkColor: #ccc;
 $darkTextColor: #6A6A6A;
@@ -87,17 +87,6 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
-
-//.header > div.right {
-//  flex-grow: 1;
-//  margin-left: 70px;
-//  margin-right: 50px;
-//}
-//
-//.header > div.left {
-//  flex-flow: 1;
-//  width: 70%;
-//}
 
 img { max-width: 100%; }
 

@@ -12,3 +12,4 @@ A web design for Howling Gale Entertainment.
 To do:
 - contact us
 - decorative hover effects on nav
+- responsive nav

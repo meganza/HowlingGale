@@ -10,7 +10,6 @@ A web design for Howling Gale Entertainment.
 4. jQuery
 
 To do:
-- contact us
-- decorative hover effects on nav
 - responsive nav
-- NOT WORKING PROPERLY ON MOBILE???
+- contact us (formspree)
+- decorative hover effects on nav

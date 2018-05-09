@@ -317,7 +317,7 @@ hr  {
   text-align: center;
 }
 
-input[type=text], textarea {
+input[type=text], input[type=email], textarea {
   width: 100%;
   padding: 10px;
   border: none;
@@ -338,7 +338,7 @@ input[type=text], textarea {
   transition: .5s;
 }
 
-input[type=submit] {
+button[type=submit] {
   margin-top: 20px;
   background-color: #ccc;
   color: $darkTextColor;
@@ -350,7 +350,7 @@ input[type=submit] {
   @include default-transition;
 }
 
-input[type=submit]:hover {
+button[type=submit]:hover {
   background-color: #ddd;
   color: #888;
 }

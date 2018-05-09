@@ -198,15 +198,17 @@
                 </p>
 
                 <div class="contact-content-container">
-                    <form action="">
+                    <form method="POST" action="https://formspree.io/howlinggaleentertainment@gmail.com">
                         <label for="name" class="bold"> Name </label>
                         <input type="text" id="name" name="name">
-                        <label for="email" class="bold"> Email </label>
-                        <input type="text" id="email" name="email">
-                        <label for="message" class="bold"> Message </label>
-                        <textarea rows="3" wrap="hard" type="text" id="message" name="message">
 
-                        <input type="submit" value="Submit">
+                        <label for="email" class="bold"> Email </label>
+                        <input type="email" id="email" name="email">
+
+                        <label for="message" class="bold"> Message </label>
+                        <textarea id="message" name="message" rows="3"></textarea>
+
+                        <button type="submit">Send</button>
                     </form>
                 </div>
             </div>

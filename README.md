@@ -8,8 +8,3 @@ A web design for Howling Gale Entertainment.
 2. [node-normalize-scss](https://github.com/ranjandatta/node-normalize-scss)
 3. [animate-sass](https://github.com/tgdev/animate-sass) - Not yet used in code
 4. jQuery
-
-To do:
-- responsive nav
-- contact us (formspree)
-- decorative hover effects on nav

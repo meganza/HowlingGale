@@ -41,6 +41,12 @@ nav img {
   order: 2;
 }
 
+@media all and (max-width: 500px) {
+  nav .right {
+    display: none;
+  }
+}
+
 p {
   font-size: 1.25em;
   line-height: 2em;

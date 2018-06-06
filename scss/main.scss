@@ -64,7 +64,7 @@ a:hover {
 }
 
 h1 { font-size: 4em; color: #eee; }
-h2 { font-size: 2em; color: $darkTextColor; padding: 0; margin: 0; } // TO FIX: normalize isnt overriding User Agent Stylesheet -_-
+h2 { font-size: 2em; color: $darkTextColor; padding: 0; margin: 0; }
 h3 { font-size: 1.5em; color: $darkTextColor; padding: 0; margin: 0;}
 h4 { font-size: 1.4em; color: $darkTextColor; padding: 0; margin: 0; }
 h5 { font-size: 1.35em; color: $darkTextColor; padding: 0; margin: 0; }
@@ -102,9 +102,13 @@ body {
   width: 100%;
   z-index: 1;
   text-align: center;
-
   top: 50%;
   transform: translateY(-50%);
+}
+
+.overlay p {
+  font-size: 1.5em;
+  padding: 0px 30px;
 }
 
 .content {
